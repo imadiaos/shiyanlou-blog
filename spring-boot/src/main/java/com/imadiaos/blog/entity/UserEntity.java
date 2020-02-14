@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 无参构造函数
 @AllArgsConstructor // 全参构造函数
 public class UserEntity {
-    private Integer id;
+    private Integer uid;
 
     private String username;
 

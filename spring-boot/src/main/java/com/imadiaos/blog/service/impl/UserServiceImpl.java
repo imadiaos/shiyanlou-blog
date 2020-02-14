@@ -39,4 +39,10 @@ public class UserServiceImpl implements UserService {
         return userEntity;
     }
 
+    @Override
+    public void updatePassword(Integer id, String password) {
+        userMapper.updatePassword(id, new BCryptPasswordEncoder().encode(password));
+    }
+
+
 }

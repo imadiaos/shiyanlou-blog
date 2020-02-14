@@ -31,4 +31,8 @@ public interface UserMapper {
     @Select("SELECT * FROM `user` WHERE `username` = #{username}")
     @ResultMap("userMap")
     UserEntity findByUsername(@Param("username") String username);
+
+    @Update("UPDATE `user` SET `password`=#{password} WHERE `uid`=#{uid}")
+    void updatePassword(@Param("uid") Integer uid, @Param("password") String password);
+
 }

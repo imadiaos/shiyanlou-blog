@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         // 存储当前线程的 uid 到 ThreadLocal 中
-        Util.setCurrentUid(userEntity.getId());
+        Util.setCurrentUid(userEntity.getUid());
         return new User(userEntity.getUsername(), userEntity.getPassword(),
                 AuthorityUtils.createAuthorityList(userEntity.getRole()));
     }
