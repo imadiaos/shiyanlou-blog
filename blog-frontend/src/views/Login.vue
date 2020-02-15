@@ -42,7 +42,7 @@ export default {
             let that = this
             this.$refs['login'].validate((valid) => {
                 if (valid) {
-                    this.$axios.post('/login', this.form).then( res => {
+                    this.$axios.post('/api/login', this.form).then( res => {
                         if(res.status === 200){
                             localStorage.setItem('Authorization', res.data)
                             that.changeLogin({Authorization:res.data})

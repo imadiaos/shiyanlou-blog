@@ -5,7 +5,7 @@
         <span>创建文章</span>
       </div>
       <el-input class="each" placeholder="请输入文章标题" v-model="title" maxlength="50" show-word-limit></el-input>
-      <el-input class="each" placeholder="请输入文章标签，用逗号分隔" v-model="tags" maxlength="10" show-word-limit></el-input>
+      <el-input class="each" placeholder="请输入文章标签，用逗号分隔" v-model="tags" maxlength="20" show-word-limit></el-input>
       <el-input class="each" placeholder="请输入文章内容" v-model="content" type="textarea" :autosize="{ minRows: 35, maxRows: 36}"></el-input>
       <el-button type="primary" style="width:100%" @click="release()" :disabled="isDisabled">发布</el-button>
     </el-card> 
@@ -28,7 +28,7 @@ export default {
     release(){
       this.isDisabled = true
       if(this.cid === ''){
-        this.$axios.post('/content',{
+        this.$axios.post('/api/content',{
           title:this.title,
           content:this.content,
           tags:this.tags
@@ -41,7 +41,7 @@ export default {
           
         })
       }else{
-        this.$axios.put('/content/' + this.cid,{
+        this.$axios.put('/api/content/' + this.cid,{
           title:this.title,
           content:this.content,
           tags:this.tags,
@@ -61,7 +61,7 @@ export default {
     },
     getContentDeatil(){
       let cid = this.$route.query.cid
-      this.$axios.get('/content/'+ cid).then(res => {
+      this.$axios.get('/api/content/'+ cid).then(res => {
         if(res.status === 200){
           this.title = res.data.article.title
           this.content = res.data.article.content

@@ -36,7 +36,7 @@ export default {
     //获取文章列表
     getContentsList() {
       this.$axios
-        .get("/contents", {
+        .get("/api/contents", {
           params: {
             page: this.current_page,
             page_size: 8
@@ -63,7 +63,7 @@ export default {
       if(this.tag === ''){
         this.getContentsList()
       }else{
-        this.$axios.get('/tag/'+ this.tag,{
+        this.$axios.get('/api/tag/'+ this.tag,{
           page:this.current_page,
           page_size:8
         }).then(res => {

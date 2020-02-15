@@ -40,7 +40,7 @@ export default {
         submitForm() {
             this.$refs['register'].validate((valid) => {
                 if (valid) {
-                    this.$axios.post('/register', this.form).then( res => {
+                    this.$axios.post('/api/register', this.form).then( res => {
                         console.log(res)
                         if(res.status === 200){
                             this.$message({

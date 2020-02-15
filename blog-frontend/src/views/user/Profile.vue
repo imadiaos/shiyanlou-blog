@@ -35,7 +35,7 @@ export default {
             this.$refs['edit'].validate((valid) => {
                 console.log(valid)
                 if (valid) {
-                    this.$axios.put('/user/password',{
+                    this.$axios.put('/api/user/password',{
                         password:this.form.password
                     }).then( res => {
                         if(res.status === 200){

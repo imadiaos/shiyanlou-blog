@@ -45,7 +45,7 @@ export default {
   methods: {
     //获取博客列表
     getContentsList() {
-      this.$axios.get("/user/contents", {
+      this.$axios.get("/api/user/contents", {
           params: {
             page: this.current_page,
             page_size: 10
@@ -61,7 +61,7 @@ export default {
     //删除博客
     delContent(cid){
       this.isDisabled = true
-      this.$axios.delete('/content/'+ cid).then((res) => {
+      this.$axios.delete('/api/content/'+ cid).then((res) => {
         if(res.status === 200){
           this.getContentsList()
           this.isDisabled = false

@@ -53,7 +53,7 @@ export default {
   methods:{
     getContentDeatil(){
       let cid = this.$route.query.cid
-      this.$axios.get('/content/'+ cid).then(res => {
+      this.$axios.get('/api/content/'+ cid).then(res => {
         if(res.status === 200){
           this.content_detail = res.data.articles
         }
